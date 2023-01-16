@@ -30,6 +30,11 @@ public class PlaneObj extends GameObj {
                 PlaneObj.super.y = e.getY() - 16;
             }
         });
+
+        //check crash
+        if (this.frame.bossObj != null && this.getRec().intersects(this.frame.bossObj.getRec())) {
+            GameWin.state = 3;
+        }
     }
 
     @Override
